@@ -36,7 +36,7 @@
 %-define(NUMTESTS, 10000).
 %-define(TIMEOUT_MAX, 3600000). % ms (1 hour)
 -define(NUMTESTS, 1).
--define(TIMEOUT_MAX, 60000). % ms (1 minute)
+-define(TIMEOUT_MAX, 300000). % ms (5 minutes)
 
 %%%------------------------------------------------------------------------
 %%% Callback functions from cloudi_service
@@ -77,10 +77,12 @@ groups() ->
        t_quorum_crash_float]}].
 
 suite() ->
-    [{ct_hooks, [cth_surefire]},
+    [{enable_builtin_hooks, false},
      {timetrap, ?TIMEOUT_MAX + 100}].
 
 init_per_suite(Config) ->
+    ok = reltool_util:
+         application_start(sasl, [{sasl_error_logger, false}], infinity),
     ok = reltool_util:application_start(cloudi_core, [], infinity),
     [{numtests, ?NUMTESTS} | Config].
 
@@ -102,9 +104,11 @@ init_per_testcase(_TestCase, Config) ->
     lists:foreach(fun({ServiceId, _}) ->
         cloudi_service_api:services_remove([ServiceId], infinity)
     end, Services),
+    error_logger:tty(false),
     Config.
 
 end_per_testcase(_TestCase, Config) ->
+    error_logger:tty(true),
     Config.
 
 %%%------------------------------------------------------------------------
