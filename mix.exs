@@ -3,7 +3,7 @@ defmodule CloudIServiceQuorum do
 
   def project do
     [app: :cloudi_service_quorum,
-     version: "1.5.0",
+     version: "1.5.1",
      language: :erlang,
      description: description,
      package: package,
@@ -14,7 +14,7 @@ defmodule CloudIServiceQuorum do
     [{:proper,
       [git: "https://github.com/manopapad/proper.git",
        tag: "v1.1"]},
-     {:cloudi_core, "~> 1.5.0"}]
+     {:cloudi_core, "~> 1.5.1"}]
   end
 
   defp description do
@@ -23,7 +23,7 @@ defmodule CloudIServiceQuorum do
 
   defp package do
     [files: ~w(src doc test rebar.config README.markdown),
-     contributors: ["Michael Truog"],
+     maintainers: ["Michael Truog"],
      licenses: ["BSD"],
      links: %{"Website" => "http://cloudi.org",
               "GitHub" => "https://github.com/CloudI/" <>
