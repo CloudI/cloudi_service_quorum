@@ -3,7 +3,7 @@ defmodule CloudIServiceQuorum do
 
   def project do
     [app: :cloudi_service_quorum,
-     version: "1.5.1",
+     version: "1.5.3",
      language: :erlang,
      description: description,
      package: package,
@@ -13,8 +13,8 @@ defmodule CloudIServiceQuorum do
   defp deps do
     [{:proper,
       [git: "https://github.com/manopapad/proper.git",
-       tag: "v1.1"]},
-     {:cloudi_core, "~> 1.5.1"}]
+       tag: "v1.2"]},
+     {:cloudi_core, "~> 1.5.3"}]
   end
 
   defp description do
