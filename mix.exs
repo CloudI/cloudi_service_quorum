@@ -1,9 +1,12 @@
+#-*-Mode:elixir;coding:utf-8;tab-width:2;c-basic-offset:2;indent-tabs-mode:()-*-
+# ex: set ft=elixir fenc=utf-8 sts=2 ts=2 sw=2 et nomod:
+
 defmodule CloudIServiceQuorum do
   use Mix.Project
 
   def project do
     [app: :cloudi_service_quorum,
-     version: "1.6.0",
+     version: "1.7.0",
      language: :erlang,
      description: description(),
      package: package(),
@@ -11,10 +14,8 @@ defmodule CloudIServiceQuorum do
   end
 
   defp deps do
-    [{:proper,
-      [git: "https://github.com/manopapad/proper.git",
-       tag: "v1.2"]},
-     {:cloudi_core, "~> 1.6.0"}]
+    [{:proper, "~> 1.1.1-beta"},
+     {:cloudi_core, "~> 1.7.0"}]
   end
 
   defp description do
