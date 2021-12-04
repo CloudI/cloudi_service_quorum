@@ -6,7 +6,7 @@ defmodule CloudIServiceQuorum do
 
   def project do
     [app: :cloudi_service_quorum,
-     version: "2.0.2",
+     version: "2.0.3",
      language: :erlang,
      erlc_options: [
        :debug_info,
@@ -29,8 +29,8 @@ defmodule CloudIServiceQuorum do
   end
 
   defp deps do
-    [{:proper, "~> 1.4.0"},
-     {:cloudi_core, "~> 2.0.2"}]
+    [{:proper, "~> 1.4.0", app: false},
+     {:cloudi_core, "~> 2.0.3", app: false}]
   end
 
   defp description do
